@@ -44,7 +44,9 @@ const MobileOTP = () => {
 
 	return (
         <div style={{"width":"100vw","display":"flex","justifyContent":"center","alignItems":"center","height":"100vh"}}>
-		<div style={{"backgroundColor":"skyBlue", "width":"80vw","display":"flex","justifyContent":"center","alignItems":"center","padding":"5rem"}}>
+			
+		<div style={{ "backgroundColor":"skyBlue","width":"80vw","display":"flex","justifyContent":"center","alignItems":"center","padding":"5rem","flexDirection":"column"}}>
+		<center><h1 style={{"padding":"2rem","fontWeight":"700","fontSize":"2rem"}}>Please Give Your Consent To Submit and Share Your Financial Statement</h1></center>
 			<center>
 				<div style={{ display: !show ? "block" : "none" }}>
 					<input style={{"border":"1px solid black","padding":"0.25rem","borderRadius":"0.25rem"}} value={mynumber} onChange={(e) => {

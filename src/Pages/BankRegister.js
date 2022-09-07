@@ -15,15 +15,16 @@ const BankRegister = () => {
     fetchRegister();}
 
     const fetchRegister=(e)=>{
-      console.log({mobileNo:mobile, bankName:bankName,password:password,IFSCcode:Ifsc,branchName:branchName,role:"BANK"})
+      
       fetch(`https://hackathonapp-vit.herokuapp.com/auth/register`, {
       method: 'POST',
      
-      body: JSON.stringify({bankName:bankName,password:password,IFSCcode:Ifsc,branchName:branchName,role:"BANK"}),
+      body: JSON.stringify({mobileNo:mobile, bankName:bankName,password:password,IFSCcode:Ifsc,branchName:branchName,role:"BANK"}),
       headers: {
         'Accept': "application/json",
         "Content-Type": "application/json",
         "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Origin":"*"
 
       },
     })
