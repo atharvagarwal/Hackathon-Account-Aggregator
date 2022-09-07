@@ -33,6 +33,8 @@ const BankRegister = () => {
 
   return (
     <div>
+       <a href="/" style={{"padding":"0.75rem"}}>Home</a>
+
     <div className="tag">
    </div>
 <div className="container mt-5">

@@ -26,14 +26,17 @@ const RegisterForm = () => {
 
       },
     })
-    .then((rawResponse)=> {return rawResponse.json()}).then((response)=>{console.log(response);localStorage.setItem('token', response.token);localStorage.setItem('user',JSON.stringify(response.user));})
+    .then((rawResponse)=> {return rawResponse.json()}).then((response)=>{console.log(response);localStorage.setItem('token', response.token);localStorage.setItem('user',JSON.stringify(response.user));localStorage.setItem('role','USER')
+     window.location.href="/userDashboard"
+  })
   }
 
  
 
   return (
     <div>
-    <div className="tag">
+       <a href="/" style={{"padding":"0.75rem"}}>Home</a>
+<div className="tag">
    </div>
 <div className="container mt-5">
 <h1 className='Header-1'>User Login</h1>

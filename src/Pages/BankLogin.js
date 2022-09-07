@@ -26,13 +26,17 @@ const RegisterForm = () => {
 
       },
     })
-    .then((rawResponse)=> {return rawResponse.json()}).then((response)=>{console.log(response);localStorage.setItem('token', response.token);localStorage.setItem('user',JSON.stringify(response.user));})
+    .then((rawResponse)=> {return rawResponse.json()}).then((response)=>{console.log(response);localStorage.setItem('token', response.token);localStorage.setItem('user',JSON.stringify(response.user));localStorage.setItem('role','BANK');
+  window.location.href="/bankDashboard"
+  })
   }
 
  
 
   return (
+   
     <div>
+       <a href="/" style={{"padding":"0.75rem"}}>Home</a>
     <div className="tag">
    </div>
 <div className="container mt-5">
