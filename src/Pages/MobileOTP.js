@@ -43,24 +43,27 @@ const MobileOTP = () => {
 	}
 
 	return (
-		<div style={{ "marginTop": "200px" }}>
+        <div style={{"width":"100vw","display":"flex","justifyContent":"center","alignItems":"center","height":"100vh"}}>
+		<div style={{"backgroundColor":"skyBlue", "width":"80vw","display":"flex","justifyContent":"center","alignItems":"center","padding":"5rem"}}>
 			<center>
 				<div style={{ display: !show ? "block" : "none" }}>
-					<input value={mynumber} onChange={(e) => {
+					<input style={{"border":"1px solid black","padding":"0.25rem","borderRadius":"0.25rem"}} value={mynumber} onChange={(e) => {
 					setnumber(e.target.value) }}
 						placeholder="phone number" />
 					<br /><br />
 					<div id="recaptcha-container"></div>
-					<button onClick={signin}>Send OTP</button>
+					<button className="btn btn-dark" onClick={signin}>Send OTP</button>
 				</div>
 				<div style={{ display: show ? "block" : "none" }}>
-					<input type="text" placeholder={"Enter your OTP"}
+					<input type="text" placeholder={"Enter your OTP"}  style={{"border":"1px solid black","padding":"0.25rem","borderRadius":"0.25rem"}}
 						onChange={(e) => { setotp(e.target.value) }}></input>
 					<br /><br />
-					<button onClick={ValidateOtp}>Verify</button>
+					<button className="btn btn-dark" onClick={ValidateOtp}>Verify</button>
 				</div>
+                
 			</center>
 		</div>
+        </div>
 	);
 }
 
