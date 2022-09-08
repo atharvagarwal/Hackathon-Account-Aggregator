@@ -27,7 +27,7 @@ const RegisterForm = () => {
       },
     })
     .then((rawResponse)=> {return rawResponse.json()}).then((response)=>{console.log(response);localStorage.setItem('token', response.token);localStorage.setItem('user',JSON.stringify(response.user));localStorage.setItem('role','USER')
-    if(localStorage.getItem('token', response.token)!==undefined){
+    if(localStorage.getItem('token')!==undefined){
       
       window.location.href="/userDashboard"}
       else{
