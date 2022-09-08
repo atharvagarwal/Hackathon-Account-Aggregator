@@ -86,16 +86,7 @@ function App() {
         ></Route>
         <Route
           path="/"
-          element={
-            localStorage.getItem("token") == "undefined" ? (
-              <Landing />
-            ) : localStorage.getItem("role") === "USER" &&
-              localStorage.getItem("role") !== "undefined" ? (
-              <UserDashboard />
-            ) : (
-              <BankDashboard />
-            )
-          }
+          element={<Landing/>}
         />
         <Route
           path="/userDashboard"
