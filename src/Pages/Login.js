@@ -32,6 +32,10 @@ const RegisterForm = () => {
       window.location.href="/userDashboard"}
       else{
         alert("wrong crendentials")
+        localStorage.removeItem("user");
+        localStorage.removeItem("otp");
+        localStorage.removeItem("role");
+        localStorage.removeItem("token");
       }
   })
 
