@@ -28,7 +28,7 @@ const RegisterForm = () => {
     })
     .then((rawResponse)=> {return rawResponse.json()}).then((response)=>{console.log(response);localStorage.setItem('token', response.token);localStorage.setItem('user',JSON.stringify(response.user));localStorage.setItem('role','USER')
     if(JSON.parse(localStorage.getItem('token', response.token))!==undefined){
-      alert("wrong crendentials")
+      
       window.location.href="/userDashboard"}
       else{
         alert("wrong crendentials")
