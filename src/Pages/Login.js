@@ -30,7 +30,11 @@ const RegisterForm = () => {
     if(JSON.parse(localStorage.getItem('token', response.token))!==undefined){
       alert("wrong crendentials")
       window.location.href="/userDashboard"}
+      else{
+        alert("wrong crendentials")
+      }
   })
+
   }
 
  
