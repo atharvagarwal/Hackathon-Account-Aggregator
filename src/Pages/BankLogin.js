@@ -27,7 +27,8 @@ const RegisterForm = () => {
       },
     })
     .then((rawResponse)=> {return rawResponse.json()}).then((response)=>{console.log(response);localStorage.setItem('token', response.token);localStorage.setItem('user',JSON.stringify(response.user));localStorage.setItem('role','BANK');
-  window.location.href="/bankDashboard"
+    if(user!==undefined){
+    window.location.href="/bankDashboard"}
   })
   }
 
