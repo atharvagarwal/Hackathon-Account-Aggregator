@@ -6,14 +6,11 @@ const AggForm = () => {
   const [taxUrl, setTaxUrl] = React.useState("");
   const [portfolioUrl, setPortfolioUrl] = React.useState("value");
 
-
-  
-
   const submitHandler = async (e) => {
     e.preventDefault();
     console.log(expenses, savings, taxUrl, portfolioUrl);
     fetch(`https://hackathonapp-vit.herokuapp.com/user/addDetails`, {
-      method: "PUT",
+      method: "PATCH",
       body: JSON.stringify({
         expenses,
         savings,
@@ -23,11 +20,10 @@ const AggForm = () => {
         mobileNo: JSON.parse(localStorage.getItem("user")).mobileNo,
       }),
       headers: {
-        'Accept': "application/json",
+        Accept: "application/json",
         "Content-Type": "application/json",
         "Access-Control-Allow-Credentials": true,
-        
-
+        "Access-Control-Allow-Origin": "*",
       },
     })
       .then((rawResponse) => {
@@ -43,7 +39,6 @@ const AggForm = () => {
   };
 
   return (
-    
     <div className="w-screen h-screen flex items-center justify-center bg-blue-100 flex-col gap-y-9">
       <p className="text-3xl font-semibold text-center">
         Add Financial Details
@@ -73,7 +68,7 @@ const AggForm = () => {
           className="w-[50%] h-12 border-2 border-black p-2 rounded-md"
           placeholder="Income Tax Return Url"
         />
-        
+
         <button
           type="submit"
           className="px-10 py-2 rounded-md border-2 border-black hover:bg-black hover:text-white hover:border-white hover:border-2"
@@ -81,12 +76,8 @@ const AggForm = () => {
           Submit
         </button>
       </form>
-      <div>
-     
-      </div>
+      <div></div>
     </div>
-    
-
   );
 };
 

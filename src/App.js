@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import RegisterForm from "./Pages/RegisterForm";
 import BankRegister from "./Pages/BankRegister";
@@ -10,6 +9,7 @@ import UserDashboard from "./Pages/UserDashboard";
 import BankDashboard from "./Pages/BankDashboard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AggForm from "./Pages/AggForm";
+import UserDetails from "./Pages/UserDetails";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           element={
             localStorage.getItem("token") == null ? (
               <RegisterForm />
-            ) : localStorage.getItem("role") == "USER" ? (
+            ) : localStorage.getItem("role") === "USER" ? (
               <UserDashboard />
             ) : (
               <BankDashboard />
@@ -32,7 +32,7 @@ function App() {
           element={
             localStorage.getItem("token") == null ? (
               <BankRegister />
-            ) : localStorage.getItem("role") == "USER" ? (
+            ) : localStorage.getItem("role") === "USER" ? (
               <UserDashboard />
             ) : (
               <BankDashboard />
@@ -44,7 +44,7 @@ function App() {
           element={
             localStorage.getItem("token") == null ? (
               <BankLogin />
-            ) : localStorage.getItem("role") == "USER" ? (
+            ) : localStorage.getItem("role") === "USER" ? (
               <UserDashboard />
             ) : (
               <BankDashboard />
@@ -56,7 +56,7 @@ function App() {
           element={
             localStorage.getItem("token") == null ? (
               <Login />
-            ) : localStorage.getItem("role") == "USER" ? (
+            ) : localStorage.getItem("role") === "USER" ? (
               <UserDashboard />
             ) : (
               <BankDashboard />
@@ -89,7 +89,7 @@ function App() {
           element={
             localStorage.getItem("token") == null ? (
               <Landing />
-            ) : localStorage.getItem("role") == "USER" &&
+            ) : localStorage.getItem("role") === "USER" &&
               localStorage.getItem("role") !== null ? (
               <UserDashboard />
             ) : (
@@ -101,7 +101,7 @@ function App() {
           path="/userDashboard"
           element={
             localStorage.getItem("token") !== null &&
-            localStorage.getItem("role") == "USER" ? (
+            localStorage.getItem("role") === "USER" ? (
               <UserDashboard />
             ) : (
               <Landing></Landing>
@@ -112,8 +112,20 @@ function App() {
           path="/bankDashboard"
           element={
             localStorage.getItem("token") !== null &&
-            localStorage.getItem("role") == "BANK" ? (
+            localStorage.getItem("role") === "BANK" ? (
               <BankDashboard />
+            ) : (
+              <Landing></Landing>
+            )
+          }
+        ></Route>
+
+        <Route
+          path="/details"
+          element={
+            localStorage.getItem("token") !== null &&
+            localStorage.getItem("role") === "BANK" ? (
+              <UserDetails />
             ) : (
               <Landing></Landing>
             )
