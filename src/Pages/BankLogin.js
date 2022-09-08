@@ -27,7 +27,8 @@ const RegisterForm = () => {
       },
     })
     .then((rawResponse)=> {return rawResponse.json()}).then((response)=>{console.log(response);localStorage.setItem('token', response.token);localStorage.setItem('user',JSON.stringify(response.user));localStorage.setItem('role','BANK');
-    if(localStorage.setItem('token', response.token)!==undefined){
+    if(JSON.parse(localStorage.getItem('token', response.token))!==undefined){
+    alert("wrong crendentials")
     window.location.href="/bankDashboard"}
   })
   }

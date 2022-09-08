@@ -18,7 +18,7 @@ function App() {
         <Route
           path="/userRegister"
           element={
-            localStorage.getItem("token") == null ? (
+            localStorage.getItem("token") ==undefined ? (
               <RegisterForm />
             ) : localStorage.getItem("role") === "USER" ? (
               <UserDashboard />
@@ -30,7 +30,7 @@ function App() {
         <Route
           path="/bankRegister"
           element={
-            localStorage.getItem("token") == null ? (
+            localStorage.getItem("token") == undefined ? (
               <BankRegister />
             ) : localStorage.getItem("role") === "USER" ? (
               <UserDashboard />
@@ -42,7 +42,7 @@ function App() {
         <Route
           path="/bankLogin"
           element={
-            localStorage.getItem("token") == null ? (
+            localStorage.getItem("token") == undefined ? (
               <BankLogin />
             ) : localStorage.getItem("role") === "USER" ? (
               <UserDashboard />
@@ -54,7 +54,7 @@ function App() {
         <Route
           path="/userlogin"
           element={
-            localStorage.getItem("token") == null ? (
+            localStorage.getItem("token") == undefined ? (
               <Login />
             ) : localStorage.getItem("role") === "USER" ? (
               <UserDashboard />
@@ -66,7 +66,7 @@ function App() {
         <Route
           path="/otp"
           element={
-            localStorage.getItem("token") !== null &&
+            localStorage.getItem("token") !== undefined &&
             localStorage.getItem("role") === "USER" ? (
               <MobileOTP />
             ) : (
@@ -77,7 +77,7 @@ function App() {
         <Route
           path="/aggForm"
           element={
-            localStorage.getItem("otp") !== null ? (
+            localStorage.getItem("otp") !== undefined ? (
               <AggForm />
             ) : (
               <Landing></Landing>
@@ -87,10 +87,10 @@ function App() {
         <Route
           path="/"
           element={
-            localStorage.getItem("token") == null ? (
+            localStorage.getItem("token") == undefined ? (
               <Landing />
             ) : localStorage.getItem("role") === "USER" &&
-              localStorage.getItem("role") !== null ? (
+              localStorage.getItem("role") !== undefined ? (
               <UserDashboard />
             ) : (
               <BankDashboard />
@@ -100,7 +100,7 @@ function App() {
         <Route
           path="/userDashboard"
           element={
-            localStorage.getItem("token") !== null &&
+            localStorage.getItem("token") !== undefined &&
             localStorage.getItem("role") === "USER" ? (
               <UserDashboard />
             ) : (
@@ -111,7 +111,7 @@ function App() {
         <Route
           path="/bankDashboard"
           element={
-            localStorage.getItem("token") !== null &&
+            localStorage.getItem("token") !== undefined &&
             localStorage.getItem("role") === "BANK" ? (
               <BankDashboard />
             ) : (
@@ -123,7 +123,7 @@ function App() {
         <Route
           path="/details"
           element={
-            localStorage.getItem("token") !== null &&
+            localStorage.getItem("token") !== undefined &&
             localStorage.getItem("role") === "BANK" ? (
               <UserDetails />
             ) : (
