@@ -17,7 +17,7 @@ const RegisterForm = () => {
 
     const fetchRegister=(e)=>{
       console.log({mobileNo:mobile, panNo:pan,password:password,aadharNo:aadhar,aadharUrl:aadharUrl,role:"USER"})
-      fetch(`http://localhost:3001/auth/register`, {
+      fetch(`https://flip-flops-calf.cyclic.app//auth/register`, {
       method: 'POST',
      
       body: JSON.stringify({mobileNo:mobile, panNo:pan,password:password,aadharNo:aadhar,aadharUrl:aadharUrl,role:"USER",email:email}),

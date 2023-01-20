@@ -16,7 +16,7 @@ const RegisterForm = () => {
   };
 
   const fetchRegister = (e) => {
-    fetch(`http://localhost:3001/auth/login`, {
+    fetch(`https://flip-flops-calf.cyclic.app//auth/login`, {
       method: "POST",
 
       body: JSON.stringify({

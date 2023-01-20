@@ -18,7 +18,7 @@ const BankDashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetch(
-        `http://localhost:3001/user/getAppliedUsers/${
+        `https://flip-flops-calf.cyclic.app//user/getAppliedUsers/${
           JSON.parse(Cookies.get("user"))[0].IFSCcode
         }`,
         {
@@ -85,7 +85,7 @@ const BankDashboard = () => {
                     className="btn btn-primary bg-dark"
                     onClick={async (e) => {
                       await fetch(
-                        `http://localhost:3001/user/approveLoan`,
+                        `https://flip-flops-calf.cyclic.app//user/approveLoan`,
                         {
                           method: "POST",
                           body: JSON.stringify({

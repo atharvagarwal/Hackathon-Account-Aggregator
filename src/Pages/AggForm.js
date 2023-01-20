@@ -11,7 +11,7 @@ const AggForm = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     console.log(expenses, savings, taxUrl, portfolioUrl);
-    fetch(`http://localhost:3001/user/addDetails`, {
+    fetch(`https://flip-flops-calf.cyclic.app//user/addDetails`, {
       method: "PATCH",
       body: JSON.stringify({
         expenses, 
