@@ -4,23 +4,23 @@
 } 
 
 .card-box{
-    background-color: #ffffff;
-    width:31.5vw;
+    background-color: #060606;
+    width:25%;
     margin: 2.5rem;
-   
-   display: flex;
+    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
-   justify-content:center ;
+   justify-content:center;
    align-items: center;
    border-radius:0.5rem;
    opacity: 0.9;
-  font-family: "Poppins", sans-serif;
+   color:white;
    text-align: center;
+   border: 1px solid grey
 }
 
 .card-box:hover{
-    background-color: #652eff;
+    background-color: #5b52ff;
     color: rgb(255, 255, 255);
    
 }

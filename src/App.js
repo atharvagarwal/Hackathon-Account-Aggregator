@@ -10,17 +10,31 @@ import BankDashboard from "./Pages/BankDashboard";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AggForm from "./Pages/AggForm";
 import UserDetails from "./Pages/UserDetails";
+import { UserContext } from "./UserContext";
+import {UserProvider } from "./UserContext"
+import Cookies from 'js-cookie';
 
+import { useContext, useEffect } from "react";
 function App() {
+  const [user,setUser]=useContext(UserContext)
+  const tokenCookie=Cookies.get('token')
+  const userCookie=Cookies.get('user')
+  const roleCookie=Cookies.get('role')
+  console.log(userCookie)
+  let parsedCookie;
+  useEffect(()=>{
+    setUser(userCookie); 
+  },[])
+
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path="/userRegister"
           element={
-            localStorage.getItem("token") =="undefined" ? (
+            !tokenCookie ? (
               <RegisterForm />
-            ) : localStorage.getItem("role") === "USER" ? (
+            ) : roleCookie==="USER" ? (
               <UserDashboard />
             ) : (
               <BankDashboard />
@@ -30,9 +44,9 @@ function App() {
         <Route
           path="/bankRegister"
           element={
-            localStorage.getItem("token") == "undefined" ? (
+            !tokenCookie ? (
               <BankRegister />
-            ) : localStorage.getItem("role") === "USER" ? (
+            ) : roleCookie==="USER" ? (
               <UserDashboard />
             ) : (
               <BankDashboard />
@@ -42,9 +56,9 @@ function App() {
         <Route
           path="/bankLogin"
           element={
-            localStorage.getItem("token") == "undefined" ? (
+            !tokenCookie ? (
               <BankLogin />
-            ) : localStorage.getItem("role") === "USER" ? (
+            ) : roleCookie==="USER" ? (
               <UserDashboard />
             ) : (
               <BankDashboard />
@@ -54,9 +68,9 @@ function App() {
         <Route
           path="/userlogin"
           element={
-            localStorage.getItem("token") == "undefined" ? (
+            !tokenCookie ? (
               <Login />
-            ) : localStorage.getItem("role") === "USER" ? (
+            ) : roleCookie==="USER" ? (
               <UserDashboard />
             ) : (
               <BankDashboard />
@@ -66,8 +80,8 @@ function App() {
         <Route
           path="/otp"
           element={
-            localStorage.getItem("token") !== "undefined" &&
-            localStorage.getItem("role") === "USER" ? (
+            tokenCookie &&
+            roleCookie==="USER" ? (
               <MobileOTP />
             ) : (
               <Landing></Landing>
@@ -77,7 +91,7 @@ function App() {
         <Route
           path="/aggForm"
           element={
-            localStorage.getItem("otp") !== "undefined" ? (
+            localStorage.getItem("otp") !== null && tokenCookie? (
               <AggForm />
             ) : (
               <Landing></Landing>
@@ -86,13 +100,22 @@ function App() {
         ></Route>
         <Route
           path="/"
-          element={<Landing/>}
+          element={
+            !tokenCookie? (
+              <Landing />
+            ) : roleCookie==="USER" &&
+              roleCookie !== null ? (
+              <UserDashboard />
+            ) : (
+              <BankDashboard />
+            )
+          }
         />
         <Route
           path="/userDashboard"
           element={
-            localStorage.getItem("token") !== "undefined" &&
-            localStorage.getItem("role") === "USER" ? (
+            userCookie &&
+            roleCookie==="USER" ? (
               <UserDashboard />
             ) : (
               <Landing></Landing>
@@ -102,8 +125,8 @@ function App() {
         <Route
           path="/bankDashboard"
           element={
-            localStorage.getItem("token") !== "undefined" &&
-            localStorage.getItem("role") === "BANK" ? (
+            userCookie &&
+            roleCookie==="BANK" ? (
               <BankDashboard />
             ) : (
               <Landing></Landing>
@@ -114,8 +137,8 @@ function App() {
         <Route
           path="/details"
           element={
-            localStorage.getItem("token") !== "undefined" &&
-            localStorage.getItem("role") === "BANK" ? (
+            tokenCookie &&
+            roleCookie==="BANK" ? (
               <UserDetails />
             ) : (
               <Landing></Landing>

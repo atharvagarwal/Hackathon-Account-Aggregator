@@ -1,4 +1,4 @@
-
+import './MobileOTP.css'
 import { getAuth } from "firebase/auth";
 
 
@@ -42,16 +42,18 @@ const MobileOTP = () => {
 		})
 	}
 
-	return (
-        <div style={{"width":"100vw","display":"flex","justifyContent":"center","alignItems":"center","height":"100vh"}}>
-			
-		<div style={{ "backgroundColor":"skyBlue","width":"80vw","display":"flex","justifyContent":"center","alignItems":"center","padding":"5rem","flexDirection":"column"}}>
-		<center><h1 style={{"padding":"2rem","fontWeight":"700","fontSize":"2rem"}}>Please Give Your Consent To Submit and Share Your Financial Statement</h1></center>
+	return (<>
+	    <h1 className='Header-1 text-3xl font-bold mt-6 mb-3  text-white'>USER VERIFICATION</h1>
+		<center><p style={{"padding":"1rem","fontWeight":"300","fontSize":"1.25rem","color":"white","width":"100%"}}>Note-Enter mobile no along with country code</p></center>
+        <div className='otpDiv'>
+		<div className="otpDiv2">
+		<center><h1 style={{"padding":"1rem","fontWeight":"700","fontSize":"1.25rem","color":"white"}}>Please Give Your Consent To Submit and Share Your Financial Statement</h1></center>
+
 			<center>
 				<div style={{ display: !show ? "block" : "none" }}>
-					<input style={{"border":"1px solid black","padding":"0.25rem","borderRadius":"0.25rem"}} value={mynumber} onChange={(e) => {
+					<input style={{"border":"1px solid black","padding":"0.25rem","borderRadius":"0.25rem","width":"100%"}} value={mynumber} onChange={(e) => {
 					setnumber(e.target.value) }}
-						placeholder="phone number" />
+						placeholder="contact" />
 					<br /><br />
 					<div id="recaptcha-container"></div>
 					<button className="btn btn-dark" onClick={signin}>Send OTP</button>
@@ -65,7 +67,9 @@ const MobileOTP = () => {
                 
 			</center>
 		</div>
+		<img src="OTP.svg"></img>
         </div>
+		</>
 	);
 }
 

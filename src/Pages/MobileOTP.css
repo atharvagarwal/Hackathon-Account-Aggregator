@@ -1,0 +1,22 @@
+.otpDiv{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:5rem;
+    padding:5rem;
+    flex-wrap:wrap ;
+}
+
+.otpDiv2{
+    background-color:Black;width:40%;display:flex;justify-content:center;align-items:center;padding:5rem;flex-direction:column;border:1px solid white
+}
+
+@media screen and (max-width: 700px){
+    .otpDiv{
+      width: 100%;
+    }
+    .otpDiv2{
+        width: 100%;
+    }
+  }
