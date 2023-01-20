@@ -25,7 +25,7 @@ const RegisterForm = () => {
         'Accept': "application/json",
         "Content-Type": "application/json",
         "Access-Control-Allow-Credentials": true,
-
+        "Acces-Control-Allow-Origin":"*"
       },
     })
     .then((rawResponse)=> {return rawResponse.json()}).then((response)=>{if(response.success) {alert(response.success)}else{alert("Invalid Registration")}})
@@ -65,7 +65,7 @@ const RegisterForm = () => {
           </div>
           <div className="form-group">
         <label htmlFor="email"  className="font-medium">Email</label>
-        <input type="text" className="form-control" name="name" placeholder="Email"  onChange={(e)=>{setEmail(e.target.value)}}required/>
+        <input type="text" className="form-control" name="name" placeholder="Mobile No"  onChange={(e)=>{setEmail(e.target.value)}}required/>
           </div>
           <div className="form-group">
           <label htmlFor="text" minLength="12" maxLength="12" className="font-medium">Aadhar No</label>
