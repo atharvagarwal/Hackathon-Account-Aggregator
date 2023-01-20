@@ -17,7 +17,7 @@ const BankRegister = () => {
 
     const fetchRegister=(e)=>{
       
-      fetch(`https://flip-flops-calf.cyclic.app//auth/register`, {
+      fetch(`https://flip-flops-calf.cyclic.app/auth/register`, {
       method: 'POST',
      
       body: JSON.stringify({mobileNo:mobile, bankName:bankName,password:password,IFSCcode:Ifsc,branchName:branchName,role:"BANK",logo:image}),
